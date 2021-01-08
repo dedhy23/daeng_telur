@@ -1,0 +1,10 @@
+<ion-view title="Form Pengataran" id="page11">
+  <ion-content padding="true" class="has-header">
+    <creator-map-component options="{}" marker="true" location="Madison Capital" zoom="12" style="display:block;position:relative;margin-left:-10px;width:calc(100% + 20px);height:400px;">
+      <ui-gmap-google-map ng-if="map.center" center="map.center" zoom="map.zoom" options="map.options">
+        <ui-gmap-marker coords="map.marker.coords" idkey="map.marker.id" options="map.marker.options"></ui-gmap-marker>
+      </ui-gmap-google-map>
+    </creator-map-component>
+    <button id="formPengataran-button102" class="button button-positive button-block icon-right ion-android-arrow-forward">Simpan</button>
+  </ion-content>
+</ion-view>
