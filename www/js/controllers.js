@@ -1,10 +1,22 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['ionic'])
   
-.controller('berandaCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $rootScope, aksi) {
+.controller('berandaCtrl', function ($scope, $stateParams, $rootScope, aksi) {
 
+    $scope.$on("$ionicView.loaded", function () {
+		aksi.getItems().then(
+			function successCallback(response) {
+                
+                $rootScope.items = response.data.data;
+                console.log($rootScope);
+			},
+			function errorCallback(response) {
+				//$rootScope.logo = 'assets/img/no_image.png';
+				// console.log(response.data);
+				// action.showAlert('Maaf', response.data.error);
+			}
+		);
+
+    });
     // $scope.details = function(){
 	// 	aksi.details().then(function successCallback(response){
 	// 	console.log(response.data.data);
@@ -14,91 +26,60 @@ function ($scope, $stateParams, $rootScope, aksi) {
 	// 	})
 	// }
 	// $scope.details();
-    
 
-}])
+})
    
-.controller('keranjangCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('keranjangCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('transaksiCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('transaksiCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('beranda2Ctrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('beranda2Ctrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('masukCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('masukCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('daftarCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('daftarCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('rincianBarangCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('rincianBarangCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('rincianBarangNamaBarangCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('rincianBarangNamaBarangCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('profilCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('profilCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('formTransaksiCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('formTransaksiCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('formPengataranCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('formPengataranCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('mapsExampleCtrl', ['$scope', 'uiGmapGoogleMapApi', function($scope, uiGmapGoogleMapApi) {
+.controller('mapsExampleCtrl', function($scope, uiGmapGoogleMapApi) {
     // Do stuff with your $scope.
     // Note: Some of the directives require at least something to be defined originally!
     // e.g. $scope.markers = []
@@ -125,38 +106,31 @@ function ($scope, $stateParams) {
             showTraficLayer:true
         };
     });
-}])
+})
    
-.controller('editProfilCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('editProfilCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('rincianTransaksiCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('rincianTransaksiCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('formPembayaranCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+.controller('formPembayaranCtrl', function ($scope, $stateParams) {
 
 
-}])
+})
    
-.controller('dataMahasiswaCtrl', ['$scope', '$stateParams', 'service', 'view', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, service, view) {
+.controller('dataMahasiswaCtrl', function ($scope, $stateParams, service, view) {
 
     
 
-}])
+})
+
+.run(function ($rootScope, $state, aksi) {
+	$rootScope.items = [];
+
+});
  

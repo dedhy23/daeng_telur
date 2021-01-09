@@ -20,9 +20,9 @@
     <div id="beranda-container15">
       <div id="beranda-container16">
         <div id="beranda-container17" class="row">
-          <div id="beranda-container14" class="col col-50">
+          <div id="beranda-container14" class="col col-50" ng-repeat="item in items">
             <div class="list card" id="beranda-card210">
-              <ion-item id="beranda-list-item30" ui-sref="beranda2.rincianBarang()">Telur Ayam</ion-item>
+              <ion-item id="beranda-list-item30" ui-sref="beranda2.rincianBarang()" >{{item.nama_telur}}</ion-item>
               <div class=" item item-image">
                 <a style="display:block;" ui-sref="beranda2.rincianBarang()">
                   <img src="img/t8iqoqJT9WvJeJ0ZtaRW_egg.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">

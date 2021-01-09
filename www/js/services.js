@@ -1,13 +1,20 @@
 angular.module('app.services', [])
 
-.factory('action', [function($q, $http, $ionicPopup){
-    var server = "http://127.0.0.1/daeng-telur/service";
+.factory('aksi', function($q, $http, $ionicPopup){
+    var server = "http://127.0.0.1/daeng-telur/service/";
     var view = {};
+    
+	view.getItems = function(){
+		return $http({
+            method: 'GET',
+            url: server
+        });
+    }
     
 	view.details = function(id){
 		return $http({
             method: 'GET',
-            url: server+'aksi.php?aksi=details&id='+id
+            url: server+'?aksi=details&id='+id
         });
     }
     
@@ -23,8 +30,8 @@ angular.module('app.services', [])
   	}; 
     return view;
 
-}])
+})
 
-.service('BlankService', [function(){
+.service('BlankService', function(){
 
-}]);
+});
