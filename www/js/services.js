@@ -10,11 +10,16 @@ angular.module('app.services', [])
             url: server
         });
     }
-    
-	view.details = function(id){
-		return $http({
+    view.details = function(id){
+        return $http ({
             method: 'GET',
             url: server+'?aksi=details&id='+id
+        })
+    }
+	view.getKategori = function(id){
+		return $http({
+            method: 'GET',
+            url: server+'?aksi=getKategori'
         });
     }
     
