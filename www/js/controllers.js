@@ -1,11 +1,10 @@
 angular.module('app.controllers', ['ionic'])
   
-.controller('berandaCtrl', function ($scope, $stateParams, $rootScope, aksi) {
+.controller('berandaCtrl', function ($scope, $stateParams, $state, $rootScope, aksi) {
 
     $scope.$on("$ionicView.loaded", function () {
 		aksi.getItems().then(
 			function successCallback(response) {
-                
                 $rootScope.items = response.data.data;
                 console.log($rootScope);
 			},
@@ -14,9 +13,39 @@ angular.module('app.controllers', ['ionic'])
 				// console.log(response.data);
 				// action.showAlert('Maaf', response.data.error);
 			}
-		);
-
+        );
+        aksi.getKategori().then(
+            function successCallback(response){
+                $rootScope.kategori=response.data.data;
+            },
+            function errorCallback(response) {
+                $rootScope.kategori={};
+            }
+        )
     });
+    $scope.details = function(id_telur){
+        console.log(id_telur);
+        aksi.details(id_telur).then(
+            function successCallback(response){
+                $rootScope.details_telur = response.data.data;
+                // console.log($rootScope);
+                $state.go('beranda2.rincianBarang');
+            },
+            function errorCallback(response){
+                $rootScope.details_telur={};
+            }
+        )
+    }
+    // $scope.kategori = function(){
+	// 	aksi.getKategori().then(function successCallback(response){
+	// 	// console.log(response.data.data);
+    //         $rootScope.data_kategori = response.data.data;
+    //         console.log($rootScope)
+	//     }, function errorCallback(response){
+	//     	$rootScope.data_kategori={};
+	// 	})
+	// }
+	// $scope.getKategori();
     // $scope.details = function(){
 	// 	aksi.details().then(function successCallback(response){
 	// 	console.log(response.data.data);
@@ -127,6 +156,26 @@ angular.module('app.controllers', ['ionic'])
 
     
 
+})
+
+.filter('listToMatrix', function() {
+    function listToMatrix(list, elementsPerSubArray) {
+        var matrix = [], i, k;
+
+        for (i = 0, k = -1; i < list.length; i++) {
+            if (i % elementsPerSubArray === 0) {
+                k++;
+                matrix[k] = [];
+            }
+
+            matrix[k].push(list[i]);
+        }
+
+        return matrix;
+    }
+    return function(list, elementsPerSubArray) {
+        return listToMatrix(list, elementsPerSubArray);
+    };
 })
 
 .run(function ($rootScope, $state, aksi) {
