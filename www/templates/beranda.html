@@ -12,26 +12,52 @@
     <div id="beranda-container5">
       <h5 id="beranda-heading3" style="color:#000000;font-weight:400;text-align:center;">Kategori</h5>
       <div id="beranda-button-bar2" class="button-bar">
-        <button id="beranda-button16" style="font-weight:300;" class="button button-light button-block icon-left ion-egg">Egg 1</button>
-        <button id="beranda-button17" style="font-weight:300;" class="button button-light button-block icon-left ion-egg">Egg 2</button>
-        <button id="beranda-button18" style="font-weight:300;" class="button button-light button-block icon-left ion-egg">Egg 3</button>
+        <button id="beranda-button16" style="font-weight:300;" class="button button-light button-block icon-left ion-egg"ng-repeat="item in kategori">{{item.nama_kategori}}</button>
+        <!-- <button id="beranda-button17" style="font-weight:300;" class="button button-light button-block icon-left ion-egg">Egg 2</button>
+        <button id="beranda-button18" style="font-weight:300;" class="button button-light button-block icon-left ion-egg">Egg 3</button> -->
       </div>
     </div>
-    <div id="beranda-container15">
-      <div id="beranda-container16">
-        <div id="beranda-container17" class="row">
-          <div id="beranda-container14" class="col col-50" ng-repeat="item in items">
-            <div class="list card" id="beranda-card210">
-              <ion-item id="beranda-list-item30" ui-sref="beranda2.rincianBarang()" >{{item.nama_telur}}</ion-item>
+    <!-- <div>
+      <div class="card">
+        <img class="card-img-top" src="img/t8iqoqJT9WvJeJ0ZtaRW_egg.jpg" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div> -->
+    <div class="card-columns">
+      <div class="card-deck-wrapper">
+           <div class="card-deck">
+              <div class="list card" id="beranda-card214">
+                <ion-item id="beranda-list-item38" ui-sref="beranda2.rincianBarang()">Telur Ayam</ion-item>
+                  <div class=" item item-image">
+                    <a style="display:block;" ui-sref="beranda2.rincianBarang()">
+                      <img src="img/t8iqoqJT9WvJeJ0ZtaRW_egg.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+                    </a>
+                  </div>
+                <ion-item class="dark" id="beranda-list-item39" ui-sref="beranda2.rincianBarang()">Data Barang</ion-item>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div id="beranda-container15" >
+      <!-- <div id="beranda-container16"> -->
+        <!-- <div id="beranda-container17" class="row"  > -->
+          <!-- <div id="beranda-container14" class="col col-50" > -->
+            <div class="list card" id="beranda-card210" ng-click="details(item.id_telur)" ng-repeat="item in items">
+              <ion-item id="beranda-list-item30">{{item.nama_telur}}</ion-item>
               <div class=" item item-image">
-                <a style="display:block;" ui-sref="beranda2.rincianBarang()">
+                <a style="display:block;" >
                   <img src="img/t8iqoqJT9WvJeJ0ZtaRW_egg.jpg" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
                 </a>
               </div>
-              <ion-item class="dark" id="beranda-list-item31" ui-sref="beranda2.rincianBarang()">Data Barang</ion-item>
+              <ion-item class="dark" id="beranda-list-item31">Rp. {{item.harga_jual}}</ion-item>
+              <ion-item class="dark" id="beranda-list-item31">Pesediaan {{item.persediaan}}</ion-item>
             </div>
           </div>
-          <div id="beranda-container19" class="col col-50">
+          <!-- <div id="beranda-container19" class="col col-50">
             <div class="list card" id="beranda-card212">
               <ion-item id="beranda-list-item34" ui-sref="beranda2.rincianBarang()">Telur kapung</ion-item>
               <div class=" item item-image">
@@ -42,8 +68,8 @@
               <ion-item class="dark" id="beranda-list-item35" ui-sref="beranda2.rincianBarang()">Data Barang</ion-item>
             </div>
           </div>
-        </div>
-        <div id="beranda-container22" class="row">
+        </div> -->
+        <!-- <div id="beranda-container22" class="row">
           <div id="beranda-container20" class="col col-50">
             <div class="list card" id="beranda-card213">
               <ion-item id="beranda-list-item36" ui-sref="beranda2.rincianBarang()">Telur Ayam</ion-item>
@@ -66,8 +92,9 @@
               <ion-item class="dark" id="beranda-list-item39" ui-sref="beranda2.rincianBarang()">Data Barang</ion-item>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
+    </div {{repeat col-sm-3}}>
   </ion-content>
 </ion-view>
