@@ -25,7 +25,7 @@ angular.module('app.controllers', ['ionic'])
     });
     $scope.details = function(id_telur){
         console.log(id_telur);
-        aksi.details(id_telur).then(
+        aksi.getDetails(id_telur).then(
             function successCallback(response){
                 $rootScope.details_telur = response.data.data;
                 // console.log($rootScope);
@@ -35,29 +35,8 @@ angular.module('app.controllers', ['ionic'])
                 $rootScope.details_telur={};
             }
         )
-    }
-    // $scope.kategori = function(){
-	// 	aksi.getKategori().then(function successCallback(response){
-	// 	// console.log(response.data.data);
-    //         $rootScope.data_kategori = response.data.data;
-    //         console.log($rootScope)
-	//     }, function errorCallback(response){
-	//     	$rootScope.data_kategori={};
-	// 	})
-	// }
-	// $scope.getKategori();
-    // $scope.details = function(){
-	// 	aksi.details().then(function successCallback(response){
-	// 	console.log(response.data.data);
-	// 		$rootScope.data_telur = response.data.data;
-	//     }, function errorCallback(response){
-	//     	$rootScope.data_telur={};
-	// 	})
-	// }
-	// $scope.details();
-
+    };
 })
-   
 .controller('keranjangCtrl', function ($scope, $stateParams) {
 
 

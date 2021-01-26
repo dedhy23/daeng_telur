@@ -10,7 +10,7 @@ angular.module('app.services', [])
             url: server
         });
     }
-    view.details = function(id){
+    view.getDetails = function(id){
         return $http ({
             method: 'GET',
             url: server+'?aksi=details&id='+id
@@ -22,7 +22,7 @@ angular.module('app.services', [])
             url: server+'?aksi=getKategori'
         });
     }
-    
+
     view.showAlert = function(title, isi_pesan) {
 		var alertPopup = $ionicPopup.alert({
 		 title: title,

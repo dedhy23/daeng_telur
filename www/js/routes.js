@@ -132,6 +132,7 @@ angular.module('app.routes', [])
     templateUrl: 'templates/dataMahasiswa.html',
     controller: 'dataMahasiswaCtrl'
   })
+  
 
 $urlRouterProvider.otherwise('/beranda-menu/page-beranda')
 
